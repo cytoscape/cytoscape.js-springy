@@ -3,7 +3,7 @@
 var packageJson = JSON.parse(Npm.require("fs").readFileSync('package.json'));
 
 Package.describe({
-  name: ':cytoscape-springy',
+  name: 'maxkfranz:cytoscape-springy',
   version: packageJson.version,
   summary: packageJson.description,
   git: packageJson.repository.url,
@@ -11,9 +11,9 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
-  api.use('maxkfranz:cytoscape@2.0.0');
+  api.use('maxkfranz:cytoscape@2.4.0');
   // api.use('jquery'); // uncomment if jquery is a dependency
-  
+
   api.addFiles([
     'cytoscape-springy.js'
   ]);
@@ -21,9 +21,9 @@ Package.onUse(function(api) {
 
 Package.onTest(function(api) {
   api.use('maxkfranz:cytoscape');
-  api.use(':cytoscape-springy');
+  api.use('maxkfranz:cytoscape-springy');
   api.use('tinytest');
-  
+
   // define your test files here if you like
   // api.addFiles('test-meteor.js');
 });
