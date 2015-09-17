@@ -123,7 +123,9 @@
           if( movedNodes.length > 0 && options.animate ){
             simUpdatingPos = true;
 
-            movedNodes.rtrigger('position');
+            movedNodes.positions(function(i, node){
+              return node.scratch('springy').position;
+            });
 
             if( options.fit ){
               cy.fit( options.padding );
@@ -146,11 +148,12 @@
           var element = node.data.element;
 
           if( !element.locked() && !element.grabbed() ){
-              element._private.position = {
-                x: v.x,
-                y: v.y
-              };
-              movedNodes.merge(element);
+            element.scratch('springy').position = {
+              x: v.x,
+              y: v.y
+            };
+
+            movedNodes.merge(element);
           } else {
             //setLayoutPositionForElement(element);
           }
