@@ -4,8 +4,6 @@
   var register = function( cytoscape, Springy ){
     if( !cytoscape || !Springy ){ return; } // can't register if cytoscape unspecified
 
-    var util = cytoscape.util;
-
     var defaults = {
       animate: true, // whether to show the layout as it's running
       maxSimulationTime: 4000, // max length in ms to run the layout
@@ -32,7 +30,9 @@
     };
 
     function SpringyLayout( options ){
-      this.options = util.extend(true, {}, defaults, options);
+      var opts = this.options = {};
+      for( var i in defaults ){ opts[i] = defaults[i]; }
+      for( var i in options ){ opts[i] = options[i]; }
     }
 
     SpringyLayout.prototype.run = function(){
@@ -51,9 +51,11 @@
       var nodes = eles.nodes().not(':parent');
       var edges = eles.edges();
 
-      var bb = util.makeBoundingBox( options.boundingBox ? options.boundingBox : {
-        x1: 0, y1: 0, w: cy.width(), h: cy.height()
-      } );
+      var bb = options.boundingBox || { x1: 0, y1: 0, w: cy.width(), h: cy.height() };
+      if( bb.x2 === undefined ){ bb.x2 = bb.x1 + bb.w; }
+      if( bb.w === undefined ){ bb.w = bb.x2 - bb.x1; }
+      if( bb.y2 === undefined ){ bb.y2 = bb.y1 + bb.h; }
+      if( bb.h === undefined ){ bb.h = bb.y2 - bb.y1; }
 
       // make a new graph
       var graph = new Springy.Graph();
