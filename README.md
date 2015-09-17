@@ -27,15 +27,16 @@ Download the library:
 CommonJS:
 ```js
 var cytoscape = require('cytoscape');
-var springy = require('cytoscape-springy');
+var cyspringy = require('cytoscape-springy');
+var Springy = require('springy');
 
-springy( cytoscape ); // register extension
+cyspringy( cytoscape, Springy ); // register extension
 ```
 
 AMD:
 ```js
-require(['cytoscape', 'cytoscape-springy'], function( cytoscape, springy ){
-  springy( cytoscape ); // register extension
+require(['cytoscape', 'cytoscape-springy', 'springy'], function( cytoscape, cyspringy, Springy ){
+  cyspringy( cytoscape, Springy ); // register extension
 });
 ```
 
