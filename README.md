@@ -6,6 +6,8 @@ cytoscape-springy
 
 The Springy physics simulation layout for Cytoscape.js
 
+**The `springy` layout gives relatively slow and poor results compared to other physics simulation layouts.  Consider using CoSE or Cola instead.**
+
 The `springy` layout uses a [force-directed](http://en.wikipedia.org/wiki/Force-directed_graph_drawing) physics simulation, written by [Dennis Hotson](http://dhotson.tumblr.com/).  For more information about Springy and its parameters, refer to [its documentation](http://getspringy.com).
 
 
