@@ -286,7 +286,7 @@ SOFTWARE.
     });
   }
 
-  if( typeof cytoscape !== 'undefined' ){ // expose to global cytoscape (i.e. window.cytoscape)
+  if( typeof cytoscape !== 'undefined' && typeof Springy !== 'undefined' ){ // expose to global cytoscape (i.e. window.cytoscape)
     register( cytoscape, Springy );
   }
 
