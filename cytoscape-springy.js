@@ -277,7 +277,9 @@ SOFTWARE.
   };
 
   if( typeof module !== 'undefined' && module.exports ){ // expose as a commonjs module
-    module.exports = register;
+    module.exports = function( cytoscape, Springy ){
+      register( cytoscape, Springy || require('springy') );
+    };
   }
 
   if( typeof define !== 'undefined' && define.amd ){ // expose as an amd/requirejs module

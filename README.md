@@ -30,9 +30,8 @@ CommonJS:
 ```js
 var cytoscape = require('cytoscape');
 var cyspringy = require('cytoscape-springy');
-var Springy = require('springy');
 
-cyspringy( cytoscape, Springy ); // register extension
+cyspringy( cytoscape ); // register extension
 ```
 
 AMD:
