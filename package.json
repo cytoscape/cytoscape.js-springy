@@ -26,7 +26,7 @@
     "springy": "^2.7.1"
   },
   "peerDependencies": {
-    "cytoscape": "^2.6.0"
+    "cytoscape": "^2.6.0 || ^3.0.0"
   },
   "devDependencies": {
     "gulp": "^3.8.8",

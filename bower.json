@@ -1,6 +1,5 @@
 {
   "name": "cytoscape-springy",
-  "version": "1.3.0",
   "description": "The Springy physics simulation layout for Cytoscape.js",
   "main": "cytoscape-springy.js",
   "repository": {
@@ -18,5 +17,9 @@
     "cytoscape",
     "cyext"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "cytoscape": "^2.2.0 || ^3.0.0",
+    "springy": "^2.7.1"
+  }
 }
