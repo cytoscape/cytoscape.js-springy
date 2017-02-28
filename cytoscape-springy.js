@@ -83,16 +83,17 @@ SOFTWARE.
       var graph = new Springy.Graph();
 
       // make some nodes
-      nodes.each(function(i, node){
-        node.scratch('springy', {
+      for(var i = nodes.length - 1; i >= 0; i--) {
+        nodes[i].scratch('springy', {
           model: graph.newNode({
-            element: node
+            element: nodes[i]
           })
         });
-      });
+      }
 
       // connect them with edges
-      edges.each(function(i, edge){
+      for(var i = edges.length - 1; i >= 0; i--) {
+        var edge = edges[i];
         var fdSrc = edge.source().scratch('springy').model;
         var fdTgt = edge.target().scratch('springy').model;
 
@@ -102,7 +103,7 @@ SOFTWARE.
             length: options.edgeLength.call(edge, edge)
           })
         });
-      });
+      }
 
       var sim = window.sim = new Springy.Layout.ForceDirected(graph, options.stiffness, options.repulsion, options.damping);
 
@@ -145,7 +146,11 @@ SOFTWARE.
           if( movedNodes.length > 0 && options.animate ){
             simUpdatingPos = true;
 
-            movedNodes.positions(function(i, node){
+            movedNodes.positions(function(node, i){
+              // Perform 2.x and 1.x backwards compatibility check
+              if(typeof node === "number"){
+                node = i;
+              }
               return node.scratch('springy').position;
             });
 
@@ -191,7 +196,11 @@ SOFTWARE.
       );
 
       // set initial node points
-      nodes.each(function(i, ele){
+      nodes.each(function(ele, i){
+        // Perform 2.x and 1.x backwards compatibility check
+        if(typeof ele === "number"){
+          ele = i;
+        }
         if( !options.random ){
           setLayoutPositionForElement(ele);
         }
