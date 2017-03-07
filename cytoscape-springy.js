@@ -289,9 +289,7 @@ SOFTWARE.
     module.exports = function( cytoscape, Springy ){
       register( cytoscape, Springy || require('springy') );
     };
-  }
-
-  if( typeof define !== 'undefined' && define.amd ){ // expose as an amd/requirejs module
+  } else if( typeof define !== 'undefined' && define.amd ){ // expose as an amd/requirejs module
     define('cytoscape-springy', function(){
       return register;
     });
