@@ -13,8 +13,8 @@ The `springy` layout uses a [force-directed](http://en.wikipedia.org/wiki/Force-
 
 ## Dependencies
 
- * Cytoscape.js >= 2.4.0
- * Springy.js >= 2.5.0
+ * Cytoscape.js ^2.4.0 || ^3.0.0
+ * Springy.js ^2.5.0
 
 
 ## Usage instructions
