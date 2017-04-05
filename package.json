@@ -1,6 +1,6 @@
 {
   "name": "cytoscape-springy",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "The Springy physics simulation layout for Cytoscape.js",
   "main": "cytoscape-springy.js",
   "spm": {
