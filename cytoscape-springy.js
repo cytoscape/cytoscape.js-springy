@@ -201,9 +201,8 @@ SOFTWARE.
         if(typeof ele === "number"){
           ele = i;
         }
-        if( !options.random ){
-          setLayoutPositionForElement(ele);
-        }
+        
+        setLayoutPositionForElement(ele);
       });
 
       // update node positions when dragging
@@ -218,7 +217,7 @@ SOFTWARE.
         var fdId = element.scratch('springy').model.id;
         var fdP = fdRenderer.layout.nodePoints[fdId].p;
         var pos = element.position();
-        var positionInFd = (pos.x != null && pos.y != null) ? fromScreen(element.position()) : {
+        var positionInFd = (pos.x != null && pos.y != null && !options.random) ? fromScreen(element.position()) : {
           x: Math.random() * 4 - 2,
           y: Math.random() * 4 - 2
         };
